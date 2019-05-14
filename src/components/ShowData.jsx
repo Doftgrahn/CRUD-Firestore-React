@@ -38,9 +38,9 @@ const ShowData = ({place, deteleteData, updateList}) => {
     return (
         <li>
             <div>
-                <span>Cafe:{cafe}</span>
-                <span>Location:{city}</span>
-                <span>Rating:{rating}</span>
+                <span>{cafe}</span>
+                <span>{city}</span>
+                <span>{rating}</span>
                 <button className="buttonList" onClick={() => deteleteData(place, {cafe: cafe})}>Delete</button>
                 <button className="buttonList" onClick={() => setIsEditing(true)}>Edit</button>
 
