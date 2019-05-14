@@ -1,7 +1,9 @@
 import React from 'react';
 
+import '../styles/rangeInput.scss';
 
 const Input = ({cafeInput,cityInput,ratingInput,cafeValue, cityValue,ratingValue}) => {
+
 return(<div className="input_wrapper">
 <input type="text"
 value={cafeValue}
@@ -20,6 +22,7 @@ placeholder="City"
  onChange={(event) => ratingInput(event.target.value)}
  placeholder="Rating"
   /> <p className="rating">You're rating is: {ratingValue}</p>
+
     </div>)
 }
 

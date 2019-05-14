@@ -4,23 +4,40 @@ $color-chill: #894e3f;
 $color-chillii: #eee1ba;
 $color-yolo: #9c634f;
 
+button,
+h1,
+input,
+p,
+span {
+    font-weight: bold;
+    text-align: center;
+}
+
+input {
+    border-radius: 20px;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
 .App {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     background-color: $color-brownish;
 
     section {
         width: 100%;
+        padding: 20px;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         margin: 0 auto;
-        padding: 50px;
         border: 20px solid $color-chill;
         background-color: rgba(137,78,63,0.5);
 
         h1 {
+            font-weight: bold;
             font-size: 200%;
             margin-bottom: 60px;
         }
@@ -29,13 +46,25 @@ $color-yolo: #9c634f;
             input {
                 font-size: 20px;
                 border: none;
-                width: 100%;
+                width: 400px;
                 padding: 10px;
                 margin: 0 20px 20px;
             }
 
             .rating {
                 padding: 20px;
+            }
+        }
+
+        .sendButton {
+            width: 50%;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 20px;
+
+            &:hover {
+                background: $color-brownish;
+                box-sizing: 6px 6px  $color-moreBrown;
             }
         }
 
@@ -49,12 +78,14 @@ $color-yolo: #9c634f;
         ul {
             margin-top: 20px;
             padding: 20px;
-            color: white;
+            color: black;
             background-color: $color-chill;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             list-style-type: none;
             flex-wrap: wrap;
+            text-decoration: underline;
 
             li {
                 font-size: 18px;
@@ -73,6 +104,7 @@ $color-yolo: #9c634f;
                 input {
                     font-size: 18px;
                     width: 100%;
+                    margin: 8px;
                     border: 1px solid $color-brownish;
                     background-color: $color-chillii;
                 }
@@ -94,6 +126,7 @@ $color-yolo: #9c634f;
                 .buttonList {
                     margin-left: auto;
                     flex: 1;
+                    margin-left: 10px;
                     padding: 0 20px;
                 }
             }
