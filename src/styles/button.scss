@@ -1,0 +1,86 @@
+$color-brownish: #f0d7a7;
+$color-moreBrown: #c37960;
+$color-chill: #894e3f;
+$color-chillii: #eee1ba;
+$color-yolo: #9c634f;
+
+.sendButton30 {
+    transition: 1s;
+    background: linear-gradient(to right, $color-brownish 30%, $color-yolo 0%);
+    animation: oneDirty 0.4s linear;
+}
+@keyframes oneDirty {
+    0% {
+        background: $color-yolo;
+    }
+
+    20% {
+        background: linear-gradient(to right, $color-brownish 7.5%, $color-yolo 0%);
+    }
+
+    50% {
+        background: linear-gradient(to right, $color-brownish 15%, $color-yolo 0%);
+    }
+
+    75% {
+        background: linear-gradient(to right, $color-brownish 23%, $color-yolo 0%);
+    }
+
+    100% {
+        background: linear-gradient(to right, $color-brownish 30%, $color-yolo 0%);
+    }
+}
+
+.sendButton60 {
+    transition: 0.4s;
+    background: linear-gradient(to right, $color-brownish 60%, $color-yolo 0%);
+    animation: oneSixty 0.4s linear;
+}
+@keyframes oneSixty {
+    0% {
+        background: linear-gradient(to right, $color-brownish 30%, $color-yolo 0%);
+    }
+
+    25% {
+        background: linear-gradient(to right, $color-brownish 38%, $color-yolo 0%);
+    }
+
+    50% {
+        background: linear-gradient(to right, $color-brownish 45%, $color-yolo 0%);
+    }
+
+    75% {
+        background: linear-gradient(to right, $color-brownish 52%, $color-yolo 0%);
+    }
+
+    100% {
+        background: linear-gradient(to right, $color-brownish 60%, $color-yolo 0%);
+    }
+}
+
+.sendButton100 {
+    transition: 0.4s;
+    background: linear-gradient(to right, $color-brownish 100%, $color-yolo 0%);
+    animation: oneHundred 0.4s linear;
+}
+@keyframes oneHundred {
+    0% {
+        background: linear-gradient(to right, $color-brownish 60%, $color-yolo 0%);
+    }
+
+    25% {
+        background: linear-gradient(to right, $color-brownish 68%, $color-yolo 0%);
+    }
+
+    50% {
+        background: linear-gradient(to right, $color-brownish 75%, $color-yolo 0%);
+    }
+
+    75% {
+        background: linear-gradient(to right, $color-brownish 85%, $color-yolo 0%);
+    }
+
+    100% {
+        background: linear-gradient(to right, $color-brownish 100%, $color-yolo 0%);
+    }
+}

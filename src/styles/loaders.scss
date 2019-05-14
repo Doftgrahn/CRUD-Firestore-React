@@ -1,0 +1,27 @@
+$color-brownish: #f0d7a7;
+$color-moreBrown: #c37960;
+$color-chill: #894e3f;
+$color-chillii: #eee1ba;
+$color-yolo: #9c634f;
+
+.loader {
+    position: relative;
+    left: 300px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    border-top: 20px solid $color-yolo;
+    border-bottom: 20px solid $color-yolo;
+    border-right: 20px solid purple;
+    border-left: 20px solid lime;
+    animation: loader 10s linear infinite;
+}
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,93 @@
+$color-brownish: #f0d7a7;
+$color-moreBrown: #c37960;
+$color-chill: #894e3f;
+$color-chillii: #eee1ba;
+$color-yolo: #9c634f;
+
+.App {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background-color: $color-brownish;
+
+    section {
+        margin: 0 auto;
+        width: 50%;
+        padding: 50px;
+        border: 20px solid $color-chill;
+        background-color: rgba(137,78,63,0.5);
+
+        h1 {
+            font-size: 200%;
+            margin-bottom: 60px;
+        }
+
+        .input_wrapper {
+            input {
+                font-size: 20px;
+                border: none;
+                width: 100%;
+                padding: 10px;
+                margin: 0 20px 20px;
+            }
+
+            .rating {
+                padding: 20px;
+            }
+        }
+
+        button {
+            font-size: 20px;
+            transition: 0.4s;
+            cursor: pointer;
+            background-color: $color-chillii;
+        }
+
+        ul {
+            margin-top: 20px;
+            padding: 20px;
+            color: white;
+            background-color: $color-chill;
+            display: flex;
+            flex-direction: column;
+            list-style-type: none;
+            flex-wrap: wrap;
+
+            li {
+                font-size: 18px;
+                padding: 5px;
+                animation: fade 0.4s linear;
+                @keyframes fade {
+                    0% {
+                        opacity: 0;
+                    }
+
+                    100% {
+                        opacity: 1;
+                    }
+                }
+
+                div {
+                    margin-top:10px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+
+
+                    span {
+                        flex: 1;
+                        margin-left:20px;
+                    }
+                }
+
+                .buttonList {
+                    margin-left: auto;
+                    flex:1;
+                    padding:0  20px;
+                }
+            }
+        }
+    }
+}
