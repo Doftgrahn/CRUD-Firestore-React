@@ -5,10 +5,10 @@ $color-chillii: #eee1ba;
 $color-yolo: #9c634f;
 
 .loader {
-    margin: 50px auto 0;
+    margin: 120px auto 0;
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     border-top: 20px solid $color-yolo;
     border-bottom: 20px solid $color-yolo;
     border-right: 20px solid $color-chill;
@@ -22,5 +22,32 @@ $color-yolo: #9c634f;
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+.oneTime {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 120px auto 0;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    animation: oneTime 10s linear infinite;
+    border-top: 20px solid $color-yolo;
+    border-bottom: 20px solid $color-yolo;
+    border-right: 20px solid $color-chill;
+    border-left: 20px solid $color-chillii;
+}
+@keyframes oneTime {
+    0% {
+        opacity: 0;
+        transform: rotateX(10deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform:rotate(180deg);
     }
 }

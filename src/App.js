@@ -112,7 +112,7 @@ const App = () => {
     return (
         <div className="App">
             <section>
-                <h1>Cafe List</h1>
+                <h1>Café Ranking</h1>
 
                 <Input
                     cafeInput={cafeInput}
@@ -130,7 +130,13 @@ const App = () => {
                     sendData={sendData}
                 />
 
-                {!cafeList ? <div className="loader" /> : <ul>{showData()}</ul>}
+                {!cafeList ? (
+                    <div className="loader" />
+                ) : cafeList.length === 0 ? (
+                    <div className="oneTime">Write something nice!</div>
+                ) : (
+                    <ul>{showData()}</ul>
+                )}
             </section>
         </div>
     );

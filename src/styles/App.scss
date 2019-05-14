@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter');
+
+
 $color-brownish: #f0d7a7;
 $color-moreBrown: #c37960;
 $color-chill: #894e3f;
@@ -7,10 +10,16 @@ $color-yolo: #9c634f;
 button,
 h1,
 input,
+label,
 p,
 span {
+    font-family: 'Bitter', serif;
     font-weight: bold;
     text-align: center;
+}
+
+label {
+    font-size: 18px;
 }
 
 input {
@@ -40,15 +49,43 @@ input {
             font-weight: bold;
             font-size: 200%;
             margin-bottom: 60px;
+            text-decoration: underline;
+            text-transform: uppercase;
         }
 
         .input_wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+            width: 100%;
+
+
+
+            div {
+            }
+
             input {
-                font-size: 20px;
+                margin: 0 auto;
+                transition: 0.4s;
+                font-size: 18px;
                 border: none;
-                width: 400px;
+                max-width: 100%;
                 padding: 10px;
                 margin: 0 20px 20px;
+
+                &:hover {
+                    border-left: 5px solid $color-moreBrown;
+                }
+
+                &:focus {
+                    transform: scale(1.01);
+                }
+                &::placeholder {
+                    font-family: 'Bitter', serif;
+
+                }
             }
 
             .rating {
@@ -64,7 +101,7 @@ input {
 
             &:hover {
                 background: $color-brownish;
-                box-sizing: 6px 6px  $color-moreBrown;
+                box-sizing: 6px 6px $color-moreBrown;
             }
         }
 
@@ -79,6 +116,7 @@ input {
             margin-top: 20px;
             padding: 20px;
             color: black;
+            border: 20px solid $color-yolo;
             background-color: $color-chill;
             display: flex;
             flex-direction: column;
@@ -127,7 +165,13 @@ input {
                     margin-left: auto;
                     flex: 1;
                     margin-left: 10px;
-                    padding: 0 20px;
+                    padding: 10px;
+                    border-radius: 20px;
+
+                    &:hover {
+                        background: $color-brownish;
+                        box-sizing: 6px 6px $color-moreBrown;
+                    }
                 }
             }
         }
