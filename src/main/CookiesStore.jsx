@@ -20,6 +20,7 @@ const CookieStore = () => {
 
     useEffect(
         () => {
+            console.log("hej");
             cafeInputRef.current.focus();
             let isSubscribed = true;
             const myCollection = db.collection("cafe");
