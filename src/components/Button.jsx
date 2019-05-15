@@ -13,7 +13,7 @@ const Button = ({sendData, cafeValue, cityValue, ratingValue}) => {
             onClick={sendData}
             disabled={!cafeValue || !cityValue || !ratingValue}
         >
-            Send Data To FireBase/Firestore
+            Add Café
         </button>
     );
 };

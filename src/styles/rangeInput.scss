@@ -1,20 +1,22 @@
-
 $color-brownish: #f0d7a7;
 $color-moreBrown: #c37960;
 $color-chill: #894e3f;
 $color-chillii: #eee1ba;
 $color-yolo: #9c634f;
 
-
-
 input[type=range] {
     -webkit-appearance: none;
+    position: relative;
+    bottom: 17px;
     /* Hides the slider so that custom slider can be made */
-    width: 100%;
+    width: 50%;
     /* Specific width is required for Firefox. */
     background: transparent;
     /* Otherwise white in Chrome */
-    transition: .2s;
+    transition: 0.2s;
+    @media screen and (min-width: 800px) {
+        width: 100%;
+    }
 }
 
 input[type=range]::-webkit-slider-thumb {

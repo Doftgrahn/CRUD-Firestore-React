@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Bitter');
-
-
 $color-brownish: #f0d7a7;
 $color-moreBrown: #c37960;
 $color-chill: #894e3f;
@@ -46,6 +44,7 @@ input {
         background-color: rgba(137,78,63,0.5);
 
         h1 {
+            margin: 0 auto;
             font-weight: bold;
             font-size: 200%;
             margin-bottom: 60px;
@@ -58,12 +57,21 @@ input {
             flex-direction: row;
             justify-content: space-around;
             flex-wrap: wrap;
-
             width: 100%;
 
-
-
             div {
+                padding: 20px;
+                flex: 1;
+
+                #ranking {
+                    position: relative;
+                    bottom: 26px;
+                    right: 22px;
+                    @media screen and (min-width: 800px) {
+                        right: 60px;
+                        top: 8px;
+                    }
+                }
             }
 
             input {
@@ -82,9 +90,10 @@ input {
                 &:focus {
                     transform: scale(1.01);
                 }
+
                 &::placeholder {
                     font-family: 'Bitter', serif;
-
+                    color: black;
                 }
             }
 
@@ -94,7 +103,7 @@ input {
         }
 
         .sendButton {
-            width: 50%;
+            width: 60%;
             margin: 0 auto;
             padding: 10px;
             border-radius: 20px;
@@ -113,8 +122,9 @@ input {
         }
 
         ul {
-            margin-top: 20px;
-            padding: 20px;
+            width: 90%;
+            margin: 40px auto 0;
+            //padding: 20px;
             color: black;
             border: 20px solid $color-yolo;
             background-color: $color-chill;
@@ -138,32 +148,42 @@ input {
                         opacity: 1;
                     }
                 }
+                input[type=range] {
+                    position: relative;
+                    top:0px;
+                }
 
                 input {
+                    flex: 1;
+                    //width: 100%;
                     font-size: 18px;
-                    width: 100%;
+                    width: auto;
                     margin: 8px;
                     border: 1px solid $color-brownish;
                     background-color: $color-chillii;
+
+
                 }
 
                 div {
+                    border-bottom: 2px solid $color-yolo;
                     margin-top: 10px;
                     display: flex;
+                    padding: 10px;
                     flex-direction: row;
+                    align-items: center;
                     justify-content: space-between;
-                    align-items: flex-start;
-                    flex-wrap: nowrap;
+                    flex-wrap: wrap;
 
                     span {
                         flex: 1;
+                        width: 100%;
                         margin-left: 20px;
                     }
                 }
 
                 .buttonList {
                     margin-left: auto;
-                    flex: 1;
                     margin-left: 10px;
                     padding: 10px;
                     border-radius: 20px;

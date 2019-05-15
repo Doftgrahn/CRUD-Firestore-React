@@ -15,21 +15,28 @@ const ShowData = ({place, deteleteData, updateList}) => {
     if(isEditing) {
         return (<li>
             <div>
+            <span>
             <input type="text"
             value={cafe}
             onChange={event => setCafe(event.target.value)}
              />
+             </span>
+             <span>
             <input
             type="text"
             value={city}
             onChange={event => setCity(event.target.value)}
             />
+            </span>
+            <span>
             <input type="range"
             max="10"
             min="0"
             value={rating}
             onChange={event => setRating(event.target.value)}
              />
+             </span>
+             <p>Rating:{rating}</p>
               <button className="buttonList" onClick={() => deteleteData(place, {cafe: cafe})}>delete</button>
               <button className="buttonList" onClick={save}>Save</button>
 </div>

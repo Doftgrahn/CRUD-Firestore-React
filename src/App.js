@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from "react";
 import "./styles/App.scss";
 import "./styles/loaders.scss";
+
 import firebase from "firebase/app";
 import "firebase/firestore";
+
 import firebaseConfig from "./shared/firestore";
 
 import Input from "./components/Input";
@@ -18,6 +20,7 @@ const App = () => {
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
     }
+
     const db = firebase.firestore();
 
     useEffect(
@@ -47,7 +50,7 @@ const App = () => {
                 rating: rating
             })
             .then(() => {
-                console.log("succeded:");
+                console.log("succeded");
                 let cafes = {
                     cafe: cafe,
                     city: city,
@@ -73,16 +76,12 @@ const App = () => {
             .catch(error => {
                 console.log("Error", error);
             });
-        let deleteCafe = cafeList.filter(item => item.cafe !== newData.cafe);
+        const deleteCafe = cafeList.filter(item => item.cafe !== newData.cafe);
         setCafeList(deleteCafe);
     };
 
     const updateList = (oldCafe, newCafe) => {
-        let newData = cafeList.map(place => {
-            return place === oldCafe ? newCafe : place;
-        });
-
-        let updateDb = db.collection("cafe").doc(newCafe.cafe);
+        const updateDb = db.collection("cafe").doc(newCafe.cafe);
         updateDb
             .set({
                 cafe: newCafe.cafe,
@@ -96,6 +95,9 @@ const App = () => {
                 console.log("error", error);
             });
 
+        const newData = cafeList.map(
+            place => (place === oldCafe ? newCafe : place)
+        );
         setCafeList(newData);
     };
 
@@ -113,7 +115,6 @@ const App = () => {
         <div className="App">
             <section>
                 <h1>Café Ranking</h1>
-
                 <Input
                     cafeInput={cafeInput}
                     cityInput={cityInput}
@@ -133,7 +134,9 @@ const App = () => {
                 {!cafeList ? (
                     <div className="loader" />
                 ) : cafeList.length === 0 ? (
-                    <div className="oneTime">Write something nice!</div>
+                    <div className="oneTime">
+                        Write something nice and have a nice day!
+                    </div>
                 ) : (
                     <ul>{showData()}</ul>
                 )}
