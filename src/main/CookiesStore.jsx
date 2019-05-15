@@ -3,10 +3,7 @@ import React, {useState, useEffect} from "react";
 import "../styles/App.scss";
 import "../styles/loaders.scss";
 
-import firebase from "firebase/app";
-import "firebase/firestore";
-
-import firebaseConfig from "../shared/firestore";
+import db from "../shared/firestore";
 
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -19,23 +16,19 @@ const CookieStore = () => {
     const [id, setId] = useState("");
     const [cafeList, setCafeList] = useState(null);
 
-    if (!firebase.apps.length) {
-        firebase.initializeApp(firebaseConfig);
-    }
-
-    const db = firebase.firestore();
-
     useEffect(
         () => {
             let isSubscribed = true;
+            const myCollection = db.collection("cafe");
             if (isSubscribed) {
-                db.collection("cafe")
+                myCollection
                     .get()
                     .then(snapshot => {
                         const list = [];
                         snapshot.forEach(doc => list.push(doc.data()));
                         setCafeList(list);
-                    });
+                    })
+                    .catch(error => console.log("Error", error));
             }
             return () => (isSubscribed = false);
         },
@@ -43,10 +36,7 @@ const CookieStore = () => {
         []
     );
 
-    const cafeInput = value => setCafe(value);
-    const cityInput = value => setCity(value);
-    const ratingInput = value => setRating(value);
-
+    console.log(cafeList);
     const sendData = () => {
         let isSubscribed = true;
         let docRef = db.collection("cafe").doc();
@@ -57,7 +47,7 @@ const CookieStore = () => {
                     cafe: cafe,
                     city: city,
                     rating: rating,
-                    id: docRef.id
+                    id: id
                 })
                 .then(() => {
                     console.log("succeded");
@@ -65,7 +55,7 @@ const CookieStore = () => {
                         cafe: cafe,
                         city: city,
                         rating: rating,
-                        id: id
+                        id: docRef.id
                     };
                     setCafeList([...cafeList, cafes]);
                 })
@@ -83,7 +73,7 @@ const CookieStore = () => {
         let isSubscribed = true;
         if (isSubscribed) {
             db.collection("cafe")
-                .doc(String(newData.id))
+                .doc(newData.id)
                 .delete()
                 .then(() => {
                     console.log("Document successfully deleted!");
@@ -100,7 +90,7 @@ const CookieStore = () => {
     const updateList = (oldCafe, newCafe) => {
         let isSubscribed = true;
 
-        const updateDb = db.collection("cafe").doc(String(newCafe.id));
+        const updateDb = db.collection("cafe").doc(newCafe.id);
         if (isSubscribed) {
             updateDb
                 .set({
@@ -139,9 +129,9 @@ const CookieStore = () => {
             <section>
                 <h1>Café Ranking</h1>
                 <Input
-                    cafeInput={cafeInput}
-                    cityInput={cityInput}
-                    ratingInput={ratingInput}
+                    cafeInput={value => setCafe(value)}
+                    cityInput={value => setCity(value)}
+                    ratingInput={value => setRating(value)}
                     cafeValue={cafe}
                     cityValue={city}
                     ratingValue={rating}

@@ -7,10 +7,15 @@ const ShowData = ({place, deteleteData, updateList}) => {
     const [rating, setRating] = useState(place.rating);
     const [id] = useState(place.id);
 
+
     const save = () => {
         setIsEditing(false)
-        updateList(place, {cafe: cafe, city:city, rating: rating, id: String(id)})
+        updateList(place, {cafe: cafe, city:city, rating: rating, id: id})
     }
+
+    console.log(id);
+
+
 
     if(isEditing) {
         return (<li>
