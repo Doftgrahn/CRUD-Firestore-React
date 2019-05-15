@@ -7,7 +7,7 @@ import LandingPage from "./main/LandingPage";
 import CookieStore from "./main/CookiesStore";
 import AboutMe from "./main/About_me";
 
-const App = () => {
+const MyCookieStore = () => {
     return (
         <Tabs>
             <CookieStore />
@@ -17,6 +17,6 @@ const App = () => {
     );
 };
 
-export default App;
+export default MyCookieStore;
 
 //<SearchComponent />

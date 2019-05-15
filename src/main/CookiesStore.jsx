@@ -20,22 +20,23 @@ const CookieStore = () => {
 
     useEffect(
         () => {
-            console.log("hej");
-            cafeInputRef.current.focus();
             let isSubscribed = true;
+            cafeInputRef.current.focus();
             const myCollection = db.collection("cafe");
-            if (isSubscribed) {
-                myCollection
-                    .get()
-                    .then(snapshot => {
+            //
+            myCollection
+                .get()
+                .then(snapshot => {
+                    if (isSubscribed) {
                         const list = [];
                         snapshot.forEach(doc => list.push(doc.data()));
                         setCafeList(list);
-                    })
-                    .catch(error =>
-                        console.error("could not get data from Firebase", error)
-                    );
-            }
+                    }
+                })
+                .catch(error =>
+                    console.error("could not get data from Firebase", error)
+                );
+
             return () => (isSubscribed = false);
         },
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -43,54 +44,47 @@ const CookieStore = () => {
     );
 
     const sendData = () => {
-        let isSubscribed = true;
         let docRef = db.collection("cafe").doc();
         //setId(docRef.id);
-        if (isSubscribed) {
-            docRef
-                .set({
+        docRef
+            .set({
+                cafe: cafe,
+                city: city,
+                rating: rating,
+                id: docRef.id
+            })
+            .then(() => {
+                console.log("succeded");
+                let cafes = {
                     cafe: cafe,
                     city: city,
                     rating: rating,
                     id: docRef.id
-                })
-                .then(() => {
-                    console.log("succeded");
-                    let cafes = {
-                        cafe: cafe,
-                        city: city,
-                        rating: rating,
-                        id: docRef.id
-                    };
-                    setCafeList([...cafeList, cafes]);
-                })
-                .catch((error: any) => {
-                    console.error("Something went wrong with Firebase", error);
-                });
-        }
+                };
+                setCafeList([...cafeList, cafes]);
+            })
+            .catch((error: any) => {
+                console.error("Something went wrong with Firebase", error);
+            });
+
         setCafe("");
         setCity("");
         setRating(0);
-        return () => (isSubscribed = false);
     };
 
     const deteleteData = newData => {
-        let isSubscribed = true;
-        console.log(newData.id);
-        if (isSubscribed) {
-            db.collection("cafe")
-                .doc(newData.id)
-                .delete()
-                .then(() => {
-                    console.log("Document successfully deleted!");
-                })
-                .catch(error => {
-                    console.log("Error", error);
-                });
-        }
+        db.collection("cafe")
+            .doc(newData.id)
+            .delete()
+            .then(() => {
+                console.log("Document successfully deleted!");
+            })
+            .catch(error => {
+                console.log("Error", error);
+            });
+
         const deleteCafe = cafeList.filter(item => item.id !== newData.id);
         setCafeList(deleteCafe);
-        return () => (isSubscribed = false);
     };
 
     const updateList = (oldCafe, newCafe) => {
