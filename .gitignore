@@ -4,7 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-/src/shared/firestore.jsx
 
 # testing
 /coverage
@@ -13,6 +12,7 @@
 /build
 
 # misc
+/src/shared/firestore.jsx
 .DS_Store
 .env.local
 .env.development.local
