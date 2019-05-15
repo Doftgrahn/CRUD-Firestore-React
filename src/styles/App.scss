@@ -5,6 +5,7 @@ $color-chill: #894e3f;
 $color-chillii: #eee1ba;
 $color-yolo: #9c634f;
 
+a,
 button,
 h1,
 h3,
@@ -15,6 +16,14 @@ span {
     font-family: 'Bitter', serif;
     font-weight: bold;
     text-align: center;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        color: $color-brownish;
+    }
 }
 
 label {

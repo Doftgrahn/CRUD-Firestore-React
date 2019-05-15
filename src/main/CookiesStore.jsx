@@ -29,7 +29,9 @@ const CookieStore = () => {
                 .then(snapshot => {
                     if (isSubscribed) {
                         const list = [];
-                        snapshot.forEach(doc => list.push(doc.data()));
+                        snapshot.forEach(doc =>
+                            list.push({...doc.data(), id: doc.id})
+                        );
                         setCafeList(list);
                     }
                 })
@@ -88,36 +90,32 @@ const CookieStore = () => {
     };
 
     const updateList = (oldCafe, newCafe) => {
-        let isSubscribed = true;
-
         const updateDb = db.collection("cafe").doc(newCafe.id);
-        if (isSubscribed) {
-            updateDb
-                .set({
-                    cafe: newCafe.cafe,
-                    city: newCafe.city,
-                    rating: newCafe.rating,
-                    id: newCafe.id
-                })
-                .then(() => {
-                    console.log("Update Did Successfull");
-                })
-                .catch(error => {
-                    console.log("error", error);
-                });
-        }
+
+        updateDb
+            .set({
+                cafe: newCafe.cafe,
+                city: newCafe.city,
+                rating: newCafe.rating,
+                id: newCafe.id
+            })
+            .then(() => {
+                console.log("Update Did Successfull");
+            })
+            .catch(error => {
+                console.log("error", error);
+            });
 
         const newData = cafeList.map(
             place => (place === oldCafe ? newCafe : place)
         );
         setCafeList(newData);
-        return () => (isSubscribed = false);
     };
 
     const showData = () =>
         cafeList.map(place => (
             <ShowData
-                key={`this Key ${place.id + place.city}`}
+                key={`this key: ${place.id + place.city + place.rating}`}
                 place={place}
                 deteleteData={deteleteData}
                 updateList={updateList}

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 
 const ShowData = ({place, deteleteData, updateList}) => {
     const [isEditing, setIsEditing] = useState(false);
+    
     const [cafe, setCafe] = useState(place.cafe);
     const [city, setCity] = useState(place.city);
     const [rating, setRating] = useState(place.rating);
