@@ -32,9 +32,9 @@ $color-yolo: #9c634f;
 }
 
 .sendButton60 {
-    transition: 0.4s;
+    transition: 1s;
     background: linear-gradient(to right, $color-brownish 60%, $color-yolo 0%);
-    animation: oneSixty 0.4 linear;
+    animation: oneSixty 0.4s linear;
 }
 @keyframes oneSixty {
     0% {
@@ -59,8 +59,9 @@ $color-yolo: #9c634f;
 }
 
 .sendButton100 {
+    transition: 0.4s;
     background: linear-gradient(to right, $color-brownish 100%, $color-yolo 0%);
-    animation: oneHundred 0.4 linear;
+    animation: oneHundred 0.4s linear;
 }
 @keyframes oneHundred {
     0% {

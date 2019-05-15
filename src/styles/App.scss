@@ -148,9 +148,10 @@ input {
                         opacity: 1;
                     }
                 }
+
                 input[type=range] {
                     position: relative;
-                    top:0px;
+                    top: 0;
                 }
 
                 input {
@@ -161,8 +162,6 @@ input {
                     margin: 8px;
                     border: 1px solid $color-brownish;
                     background-color: $color-chillii;
-
-
                 }
 
                 div {

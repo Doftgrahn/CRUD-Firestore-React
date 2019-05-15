@@ -7,8 +7,8 @@ $color-yolo: #9c634f;
 .loader {
     margin: 120px auto 0;
     border-radius: 50%;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     border-top: 20px solid $color-yolo;
     border-bottom: 20px solid $color-yolo;
     border-right: 20px solid $color-chill;
@@ -32,9 +32,10 @@ $color-yolo: #9c634f;
     justify-content: center;
     margin: 120px auto 0;
     border-radius: 50%;
-    width: 300px;
-    height: 300px;
-    animation: oneTime 10s linear infinite;
+    padding:50px;
+    width: 200px;
+    height: 200px;
+    animation: oneTime 10s linear infinite alternate;
     border-top: 20px solid $color-yolo;
     border-bottom: 20px solid $color-yolo;
     border-right: 20px solid $color-chill;
@@ -42,11 +43,14 @@ $color-yolo: #9c634f;
 }
 @keyframes oneTime {
     0% {
+        background-color: $color-brownish;
         opacity: 0;
         transform: rotateX(10deg);
     }
 
     100% {
+        color:white;
+        background-color: $color-chill;
         opacity: 1;
         transform:rotate(180deg);
     }

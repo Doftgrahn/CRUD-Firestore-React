@@ -5,11 +5,11 @@ const ShowData = ({place, deteleteData, updateList}) => {
     const [cafe, setCafe] = useState(place.cafe);
     const [city, setCity] = useState(place.city);
     const [rating, setRating] = useState(place.rating);
+    const [id] = useState(place.id);
 
     const save = () => {
         setIsEditing(false)
-        updateList(place, {cafe: cafe, city:city, rating: rating})
-
+        updateList(place, {cafe: cafe, city:city, rating: rating, id: String(id)})
     }
 
     if(isEditing) {
@@ -37,7 +37,7 @@ const ShowData = ({place, deteleteData, updateList}) => {
              />
              </span>
              <p>Rating:{rating}</p>
-              <button className="buttonList" onClick={() => deteleteData(place, {cafe: cafe})}>delete</button>
+              <button className="buttonList" onClick={() => deteleteData(place, {id: id})}>delete</button>
               <button className="buttonList" onClick={save}>Save</button>
 </div>
             </li>)
@@ -48,7 +48,7 @@ const ShowData = ({place, deteleteData, updateList}) => {
                 <span>{cafe}</span>
                 <span>{city}</span>
                 <span>{rating}</span>
-                <button className="buttonList" onClick={() => deteleteData(place, {cafe: cafe})}>Delete</button>
+                <button className="buttonList" onClick={() => deteleteData(place, {id: id})}>Delete</button>
                 <button className="buttonList" onClick={() => setIsEditing(true)}>Edit</button>
 
             </div>

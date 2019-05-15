@@ -1,0 +1,57 @@
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 80vh;
+  @media screen and (min-width: 800px) {
+    height: 100vh;
+  }
+
+  .content_container {
+    max-width: 100%;
+    @media screen and (min-width: 800px) {
+      max-width: 30%;
+    }
+  }
+
+  .wrapper {
+    padding: 20px;
+    margin: 10px;
+    max-width: 80%;
+    // background-color: $color-border;
+    h3 {
+      letter-spacing: 1px;
+      font-weight: 600;
+      text-align: center;
+      color: white;
+    }
+
+    span {
+      display: block;
+      color: white;
+      text-align: left;
+    }
+
+    p {
+      text-align: left;
+      color: white;
+    }
+
+    ul {
+      text-align: left;
+
+      li {
+        margin: 0 auto;
+        list-style-type: none;
+
+        a {
+          cursor: pointer;
+          color: white;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

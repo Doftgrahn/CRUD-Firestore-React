@@ -1,0 +1,25 @@
+$color-brownish: #f0d7a7;
+$color-moreBrown: #c37960;
+$color-chill: #894e3f;
+$color-chillii: #eee1ba;
+$color-yolo: #9c634f;
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .tabs {
+        transition: 0.4s;
+        outline: none;
+        border-radius: 20px;
+        border:none;
+        margin:10px;
+        padding: 0 10px;
+        cursor: pointer;
+        &:hover {
+            background-color: $color-brownish;
+        }
+    }
+}

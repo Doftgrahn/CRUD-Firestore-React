@@ -1,6 +1,7 @@
 
 
-const  firebaseConfig = {
+
+ const  firebaseConfig = {
     apiKey: "AIzaSyC1RbTzGvYglWwXlLziEKiCI6hebJ_mo6o",
     authDomain: "mymusicplaylist-fdcce.firebaseapp.com",
     databaseURL: "https://mymusicplaylist-fdcce.firebaseio.com",
