@@ -7,6 +7,7 @@ $color-yolo: #9c634f;
 
 button,
 h1,
+h3,
 input,
 label,
 p,
@@ -31,10 +32,12 @@ input {
     width: 100%;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     background-color: $color-brownish;
 
     section {
         width: 100%;
+        min-height: 100vh;
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -43,13 +46,29 @@ input {
         border: 20px solid $color-chill;
         background-color: rgba(137,78,63,0.5);
 
-        h1 {
-            margin: 0 auto;
-            font-weight: bold;
-            font-size: 200%;
-            margin-bottom: 60px;
-            text-decoration: underline;
-            text-transform: uppercase;
+        .title_container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: $color-brownish;
+            border-radius: 20px;
+            margin-bottom: 40px;
+
+            h1 {
+                font-weight: bold;
+                font-size: 220%;
+                text-decoration: underline;
+                text-transform: uppercase;
+            }
+
+            p {
+                font-size: 90%;
+                margin-top: -30px;
+                text-decoration: underline;
+                text-transform: uppercase;
+            }
         }
 
         .input_wrapper {
@@ -75,6 +94,7 @@ input {
             }
 
             input {
+                cursor: pointer;
                 margin: 0 auto;
                 transition: 0.4s;
                 font-size: 18px;
@@ -122,7 +142,7 @@ input {
         }
 
         ul {
-            width: 90%;
+            width: 100%;
             margin: 40px auto 0;
             //padding: 20px;
             color: black;

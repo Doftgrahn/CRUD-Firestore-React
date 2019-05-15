@@ -4,9 +4,9 @@ section {
   justify-content: center;
   align-items: center;
   align-content: center;
-  height: 80vh;
+  min-height: 80vh;
   @media screen and (min-width: 800px) {
-    height: 100vh;
+    min-height: 100vh;
   }
 
   .content_container {

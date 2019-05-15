@@ -2,12 +2,14 @@ import React from 'react';
 
 import '../styles/rangeInput.scss';
 
-const Input = ({cafeInput,cityInput,ratingInput,cafeValue, cityValue,ratingValue}) => {
+const Input = ({cafeInput,cityInput,ratingInput,cafeValue, cityValue,ratingValue, cafeRef}) => {
 
 return(<div className="input_wrapper">
 <div>
 <label htmlFor="cafe">Cafe</label>
 <input type="text"
+autoComplete="off"
+ref={cafeRef}
 id="cafe"
 value={cafeValue}
 onChange={(event) =>cafeInput(event.target.value)}
@@ -17,6 +19,7 @@ placeholder="e.g My Café..."
   <div>
   <label htmlFor="city">City</label>
 <input type="text"
+autoComplete="off"
 id="city"
 value={cityValue}
 onChange={(event) => cityInput(event.target.value)}

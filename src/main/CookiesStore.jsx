@@ -10,14 +10,17 @@ import Button from "../components/Button";
 import ShowData from "../components/ShowData";
 
 const CookieStore = () => {
+    const cafeInputRef = React.createRef();
+
     const [cafe, setCafe] = useState("");
     const [city, setCity] = useState("");
     const [rating, setRating] = useState(0);
-    const [id, setId] = useState("");
+    //const [id, setId] = useState("");
     const [cafeList, setCafeList] = useState(null);
 
     useEffect(
         () => {
+            cafeInputRef.current.focus();
             let isSubscribed = true;
             const myCollection = db.collection("cafe");
             if (isSubscribed) {
@@ -28,7 +31,9 @@ const CookieStore = () => {
                         snapshot.forEach(doc => list.push(doc.data()));
                         setCafeList(list);
                     })
-                    .catch(error => console.log("Error", error));
+                    .catch(error =>
+                        console.error("could not get data from Firebase", error)
+                    );
             }
             return () => (isSubscribed = false);
         },
@@ -36,18 +41,17 @@ const CookieStore = () => {
         []
     );
 
-    console.log(cafeList);
     const sendData = () => {
         let isSubscribed = true;
         let docRef = db.collection("cafe").doc();
-        setId(docRef.id);
+        //setId(docRef.id);
         if (isSubscribed) {
             docRef
                 .set({
                     cafe: cafe,
                     city: city,
                     rating: rating,
-                    id: id
+                    id: docRef.id
                 })
                 .then(() => {
                     console.log("succeded");
@@ -60,7 +64,7 @@ const CookieStore = () => {
                     setCafeList([...cafeList, cafes]);
                 })
                 .catch((error: any) => {
-                    console.log("error", error);
+                    console.error("Something went wrong with Firebase", error);
                 });
         }
         setCafe("");
@@ -71,6 +75,7 @@ const CookieStore = () => {
 
     const deteleteData = newData => {
         let isSubscribed = true;
+        console.log(newData.id);
         if (isSubscribed) {
             db.collection("cafe")
                 .doc(newData.id)
@@ -117,7 +122,7 @@ const CookieStore = () => {
     const showData = () =>
         cafeList.map(place => (
             <ShowData
-                key={place.city + place.cafe}
+                key={`this Key ${place.id + place.city}`}
                 place={place}
                 deteleteData={deteleteData}
                 updateList={updateList}
@@ -127,7 +132,10 @@ const CookieStore = () => {
     return (
         <div className="App">
             <section>
-                <h1>Café Ranking</h1>
+                <div className="title_container">
+                    <h1>Café Ranking</h1>
+                    <p>Rank Your Favorite Café!</p>
+                </div>
                 <Input
                     cafeInput={value => setCafe(value)}
                     cityInput={value => setCity(value)}
@@ -135,6 +143,7 @@ const CookieStore = () => {
                     cafeValue={cafe}
                     cityValue={city}
                     ratingValue={rating}
+                    cafeRef={cafeInputRef}
                 />
 
                 <Button
